@@ -1,0 +1,65 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.75rem;
+  background: linear-gradient(90deg, #0a0e1c, #0d1226 60%, #0a0e1c);
+  border-bottom: 1px solid rgba(0, 229, 255, 0.25);
+  box-shadow: 0 1px 24px -8px rgba(0, 229, 255, 0.35);
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.navbar__brand {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #e6ecf7;
+  font-size: 1.05rem;
+}
+.navbar__links {
+  display: flex;
+  gap: 1.6rem;
+}
+.navbar__links a {
+  color: #93a0c2;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: color 150ms ease, border-color 150ms ease;
+}
+.navbar__links a:hover {
+  color: #e6ecf7;
+}
+.navbar__links a.activo {
+  color: #00e5ff;
+  border-bottom: 2px solid #00e5ff;
+}
+.navbar__auth a,
+.navbar__auth button {
+  color: #e6ecf7;
+  background: transparent;
+  border: 1px solid rgba(0, 229, 255, 0.35);
+  padding: 0.4rem 0.9rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+.navbar__auth a:hover,
+.navbar__auth button:hover {
+  border-color: #00e5ff;
+  box-shadow: 0 0 12px -4px rgba(0, 229, 255, 0.6);
+}
+.container {
+  max-width: 1080px;
+  margin: 1.75rem auto;
+  padding: 0 1.25rem 2rem;
+}
