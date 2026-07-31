@@ -1,0 +1,12 @@
+.tarjeta--angosta {
+  max-width: 380px;
+  margin: 3rem auto;
+}
+.ayuda {
+  margin-top: 1.1rem;
+  font-size: 0.85rem;
+  color: #5c6787;
+}
+.ayuda b {
+  color: #93a0c2;
+}

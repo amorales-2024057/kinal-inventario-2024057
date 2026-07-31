@@ -1,0 +1,9 @@
+# Autoriza a pnpm a ejecutar los scripts de instalación (postinstall/preinstall)
+# de estos paquetes. Prisma los necesita para generar su cliente y descargar
+# el motor de consultas (query engine). Sin esto, pnpm los bloquea por
+# seguridad (política de pnpm 10+) y hay que aprobarlos a mano cada vez con
+# "pnpm approve-builds".
+allowBuilds:
+  '@prisma/client': true
+  '@prisma/engines': true
+  prisma: true

@@ -1,0 +1,249 @@
+/* ============================================================
+   TEMA "FUTURISTA" — Inventario Bodega Kinal
+   ------------------------------------------------------------
+   Paleta oscura con acentos neón (cian + violeta), tipografía
+   técnica (Orbitron para títulos, Rajdhani para texto) y bordes
+   con resplandor sutil. A propósito NO se usan animaciones en
+   bucle (nada de @keyframes infinitos, parpadeos, ni partículas):
+   solo transiciones cortas en hover/focus para que la interfaz
+   se sienta ágil sin distraer ni cansar la vista.
+   ============================================================ */
+
+:root {
+  /* Fondos */
+  --bg-base: #05070f;
+  --bg-panel: #0b0f1e;
+  --bg-panel-alt: #10162b;
+  --bg-input: #0a0e1c;
+
+  /* Acentos neón */
+  --neon-cian: #00e5ff;
+  --neon-violeta: #a06bff;
+  --neon-verde: #39ff9d;
+  --neon-rojo: #ff4d6d;
+
+  /* Texto */
+  --texto-principal: #e6ecf7;
+  --texto-secundario: #93a0c2;
+  --texto-tenue: #5c6787;
+
+  /* Bordes */
+  --borde: #1f2740;
+  --borde-suave: rgba(0, 229, 255, 0.25);
+
+  --radio: 10px;
+  --sombra-neon: 0 0 0 1px var(--borde-suave), 0 0 18px -6px rgba(0, 229, 255, 0.45);
+  --transicion: 150ms ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Rajdhani", "Segoe UI", Arial, sans-serif;
+  font-size: 16px;
+  color: var(--texto-principal);
+  background:
+    radial-gradient(1200px 600px at 15% -10%, rgba(160, 107, 255, 0.12), transparent 60%),
+    radial-gradient(1000px 500px at 100% 0%, rgba(0, 229, 255, 0.10), transparent 55%),
+    linear-gradient(var(--bg-base), var(--bg-base));
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+h1, h2, h3 {
+  font-family: "Orbitron", "Segoe UI", Arial, sans-serif;
+  letter-spacing: 0.03em;
+  color: var(--texto-principal);
+}
+
+h2 {
+  font-size: 1.35rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 0 0 1rem;
+}
+
+/* Línea de acento bajo los títulos de sección, sin animación */
+h2::after {
+  content: "";
+  display: block;
+  width: 46px;
+  height: 3px;
+  margin-top: 0.5rem;
+  background: linear-gradient(90deg, var(--neon-cian), var(--neon-violeta));
+  border-radius: 3px;
+}
+
+.encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.encabezado h2 {
+  margin: 0;
+}
+.encabezado h2::after {
+  display: none;
+}
+
+.tarjeta {
+  background: linear-gradient(180deg, var(--bg-panel), var(--bg-panel-alt));
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 1.75rem;
+  box-shadow: var(--sombra-neon);
+  max-width: 620px;
+}
+
+.campo {
+  margin-bottom: 1.1rem;
+  display: flex;
+  flex-direction: column;
+}
+.campo label {
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--texto-secundario);
+}
+.campo input,
+.campo select,
+.campo textarea {
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: var(--bg-input);
+  color: var(--texto-principal);
+  transition: border-color var(--transicion), box-shadow var(--transicion);
+}
+.campo input::placeholder,
+.campo textarea::placeholder {
+  color: var(--texto-tenue);
+}
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+  outline: none;
+  border-color: var(--neon-cian);
+  box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.18);
+}
+.campo select option {
+  background: var(--bg-panel);
+  color: var(--texto-principal);
+}
+
+.error {
+  color: var(--neon-rojo);
+  font-size: 0.82rem;
+}
+
+.acciones-form {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+.acciones-form a {
+  color: var(--texto-secundario);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color var(--transicion);
+}
+.acciones-form a:hover {
+  color: var(--neon-cian);
+}
+
+button,
+.btn {
+  background: linear-gradient(135deg, rgba(0, 229, 255, 0.16), rgba(160, 107, 255, 0.16));
+  color: var(--texto-principal);
+  border: 1px solid var(--borde-suave);
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 600;
+  font-size: 0.92rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  display: inline-block;
+  transition: border-color var(--transicion), box-shadow var(--transicion), transform var(--transicion);
+}
+button:hover,
+.btn:hover {
+  border-color: var(--neon-cian);
+  box-shadow: 0 0 14px -4px rgba(0, 229, 255, 0.6);
+  transform: translateY(-1px);
+}
+button:active,
+.btn:active {
+  transform: translateY(0);
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg-panel);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  overflow: hidden;
+}
+.tabla th,
+.tabla td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--borde);
+}
+.tabla th {
+  background: var(--bg-panel-alt);
+  color: var(--neon-cian);
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.tabla tbody tr {
+  transition: background-color var(--transicion);
+}
+.tabla tbody tr:hover {
+  background: rgba(0, 229, 255, 0.06);
+}
+.tabla tbody tr:last-child td {
+  border-bottom: none;
+}
+.tabla td a {
+  margin-right: 0.9rem;
+  color: var(--neon-cian);
+  text-decoration: none;
+}
+.tabla td a:hover {
+  text-decoration: underline;
+}
+.tabla td button {
+  background: rgba(255, 77, 109, 0.14);
+  border-color: rgba(255, 77, 109, 0.4);
+  padding: 0.35rem 0.7rem;
+  font-size: 0.78rem;
+}
+.tabla td button:hover {
+  border-color: var(--neon-rojo);
+  box-shadow: 0 0 12px -4px rgba(255, 77, 109, 0.6);
+}
