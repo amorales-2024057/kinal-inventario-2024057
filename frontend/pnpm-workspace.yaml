@@ -1,0 +1,10 @@
+# Autoriza a pnpm a ejecutar los scripts de instalación de estos paquetes
+# nativos que usa Angular/esbuild internamente. Sin esto, pnpm los bloquea
+# por seguridad y el build puede fallar de forma silenciosa o con
+# [ERR_PNPM_IGNORED_BUILDS]. Si aparece ese error, ejecuta:
+#   pnpm approve-builds
+allowBuilds:
+  esbuild: true
+  lmdb: true
+  msgpackr-extract: true
+  '@parcel/watcher': true
